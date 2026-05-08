@@ -191,7 +191,7 @@ export default function RegisterPage() {
             {/* Title */}
             <div className="text-center mb-8">
               <h1
-                className="font-display text-4xl font-bold mb-2 leading-tight"
+                className="font-display text-4xl mb-2 leading-tight"
                 style={{ color: 'var(--text-primary)' }}
               >
                 Join the Gathering
