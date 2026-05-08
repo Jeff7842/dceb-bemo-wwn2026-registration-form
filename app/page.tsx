@@ -161,9 +161,9 @@ export default function RegisterPage() {
     try {
       const result = await mutation.mutateAsync(payload);
       if (result.duplicate) {
-        toast.info("You're already registered — welcome back! 🙏");
+        toast.info("The Member is already registered — welcome back! 🙏");
       } else {
-        toast.success("You're registered! See you at the gathering 🎉");
+        toast.success("The Member has been successfully registered 🎉!");
       }
       reset();
       queryClient.invalidateQueries({ queryKey: ['churches'] });

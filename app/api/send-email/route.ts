@@ -20,7 +20,7 @@ export async function POST(req: NextRequest) {
 
   try {
     const { data, error } = await resend.emails.send({
-      from: 'WWN Registration <onboarding@resend.dev>',
+      from: 'WWN Registration <onboarding@kyfaru.com>',
       to: [to],
       subject,
       html,

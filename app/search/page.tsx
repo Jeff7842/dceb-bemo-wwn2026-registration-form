@@ -1,5 +1,6 @@
 'use client';
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import Header from '@/components/Header';
 import DeleteModal from '@/components/DeleteModal';
@@ -37,6 +38,7 @@ function avatarHue(name: string) {
 const LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 
 export default function SearchPage() {
+  const router = useRouter();
   const queryClient = useQueryClient();
   const [query, setQuery] = useState('');
   const [regionFilter, setRegionFilter] = useState('');
@@ -49,6 +51,12 @@ export default function SearchPage() {
     if (typeof window === 'undefined') return null;
     return localStorage.getItem('authenticated') === 'true' ? localStorage.getItem('adminName') : null;
   });
+
+  useEffect(() => {
+    if (localStorage.getItem('authenticated') !== 'true') {
+      router.replace('/data/login');
+    }
+  }, [router]);
   const [editingId, setEditingId] = useState<string | null>(null);
   const [editDraft, setEditDraft] = useState<Partial<Member>>({});
   const [deleteTarget, setDeleteTarget] = useState<Member | null>(null);
