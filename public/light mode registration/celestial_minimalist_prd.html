@@ -1,0 +1,180 @@
+# Celestial Minimalist
+
+## Product Overview
+
+**The Pitch:** A premium, ethereal registration and management platform for 'Worship & Warfare Night'. It pairs a frictionless, heavily-conditional public onboarding flow with a robust, data-dense administrative dashboard. 
+
+**For:** Attendees (members, pastors, event staff) expecting a seamless, inspiring entry point, and administrators needing deep, reliable data oversight.
+
+**Device:** desktop
+
+**Design Direction:** Celestial Minimalist. Expansive whitespace, high-contrast serif typography paired with crisp sans-serif, and subtle sky-blue gradients that evoke clarity, reverence, and premium quality.
+
+**Inspired by:** Kinfolk Magazine (typography), Vercel (minimalist functionality), Notion (clean table data).
+
+---
+
+## Screens
+
+- **Registration Form:** Public onboarding with conditional logic for church and roles.
+- **Registration Success:** Confirmation screen with personalized spiritual messaging.
+- **Admin Login:** Secure gateway to the data dashboard.
+- **Data Dashboard:** High-level metrics and analytics cards for event overview.
+- **Search & Directory:** Advanced filtering and editable TanStack table for attendee management.
+
+---
+
+## Key Flows
+
+**Registration & Dynamic Logic:** Attendee signs up with varying credentials.
+1. User selects "Staff" from the Role selector -> a "Service Area" multi-select appears.
+2. User searches for their church in the dropdown -> doesn't find it -> selects "Other".
+3. Dropdown morphs into a clean text input with a small "Revert to list" icon.
+4. User submits -> data syncs to Neon DB and Google Sheets.
+
+**Admin Deep Dive:** Event coordinator manages attendee data.
+1. Admin logs in -> lands on Dashboard Overview -> sees 3 analytics cards.
+2. Admin navigates to Search -> filters by "Region" and "Last Name Initial".
+3. Admin clicks "Export to PDF" on the TanStack table -> downloads filtered report.
+
+---
+
+<details>
+<summary>Design System</summary>
+
+## Color Palette
+
+- **Primary:** `#0F172A` - Deep night sky (Buttons, headings, primary actions)
+- **Background:** `#F8FAFC` - Ethereal cloud white (Page background)
+- **Surface:** `#FFFFFF` - True white (Cards, modals, inputs)
+- **Text:** `#334155` - Slate grey (Body text, data rows)
+- **Muted:** `#CBD5E1` - Soft silver (Borders, inactive states, placeholders)
+- **Accent:** `#38BDF8` - Bright sky blue (Focus rings, success states, subtle gradients)
+- **Gradient Glow:** `linear-gradient(135deg, #E0F2FE 0%, #FFFFFF 100%)`
+
+## Typography
+
+- **Headings:** `Cormorant Garamond`, 600, 32-48px (Ethereal, high-contrast serif)
+- **Body:** `DM Sans`, 400, 16px (Crisp, geometric sans)
+- **Small text:** `DM Sans`, 500, 13px (Labels, table headers, uppercase tracking)
+- **Buttons:** `DM Sans`, 500, 14px
+
+**Style notes:** Sharp 4px border radius. No heavy drop shadows; use 1px subtle borders (`#F1F5F9`) and soft, diffuse colored glows (`0 10px 40px -10px rgba(56, 189, 248, 0.1)`) for depth. Inputs are flush and minimal, relying on bottom borders or light fills.
+
+## Design Tokens
+
+```css
+:root {
+  --color-primary: #0F172A;
+  --color-background: #F8FAFC;
+  --color-surface: #FFFFFF;
+  --color-text: #334155;
+  --color-muted: #CBD5E1;
+  --color-accent: #38BDF8;
+  --font-display: 'Cormorant Garamond', serif;
+  --font-body: 'DM Sans', sans-serif;
+  --radius: 4px;
+  --spacing: 8px;
+}
+```
+
+</details>
+
+---
+
+<details>
+<summary>Screen Specifications</summary>
+
+### Registration Form
+
+**Purpose:** Capture complex attendee data with an effortless, spiritual aesthetic.
+
+**Layout:** Centered 560px max-width form container floating over a subtle gradient background.
+
+**Key Elements:**
+- **Header:** `Cormorant Garamond`, 48px, `#0F172A`, "Join the Gathering".
+- **Phone Input:** Left-aligned dropdown for country code (default `🇰🇪 +254`), right-aligned numeric input.
+- **Church Dropdown:** Searchable select. If "Other" is clicked, replaces component with text input containing a right-aligned `ArrowUturnLeft` icon to revert.
+- **Role Selector:** 3 segmented pills (Member, Pastor, Staff). Clicking "Staff" slides down a "Service Area" select (Ushering, Media, Worship, Security).
+- **Submit Button:** Full width, `#0F172A` background, white text, 4px radius.
+
+**States:**
+- **Empty:** Inputs show subtle `#CBD5E1` borders.
+- **Loading:** Submit button text changes to "Ascending..." with a trailing dot animation.
+- **Error:** Inputs get a `#EF4444` bottom border and tiny 12px red error text below.
+
+### Registration Success
+
+**Purpose:** Confirm registration and set the tone for the event.
+
+**Layout:** Centered single column.
+
+**Key Elements:**
+- **Icon:** Delicate SVG of a dove or open hands, `#38BDF8`.
+- **Title:** "Your Seat is Reserved", `Cormorant Garamond`, 40px.
+- **Subtext:** "A confirmation epistle has been sent to your inbox."
+- **Action:** Ghost button to "Register Another Attendee".
+
+### Admin Login
+
+**Purpose:** Secure gate for event staff.
+
+**Layout:** Minimal 400px centered card.
+
+**Key Elements:**
+- **Password Input:** Single input field, type `password`. (Hardcoded auth: `Jesus@WWN2026`).
+- **Submit Button:** "Enter Dashboard".
+
+**States:**
+- **Error:** Shake animation, text "Invalid Key".
+
+### Data Dashboard
+
+**Purpose:** High-level analytics of the registration pool.
+
+**Layout:** Top nav bar, 3-column metric card grid.
+
+**Key Elements:**
+- **Nav:** Left logo, right "Logout".
+- **Metric Card 1:** "Total Brethren" (Total Members count), 32px display font.
+- **Metric Card 2:** "Churches Represented" (Unique churches count).
+- **Metric Card 3:** "Active Servants" (Staff count breakdown by Service Area).
+
+### Search & Directory
+
+**Purpose:** Deep-dive tabular data management and export.
+
+**Layout:** Full-bleed interface, sidebar filters, expansive main table.
+
+**Key Elements:**
+- **Filters (Sidebar):** 
+  - Alphabetical grid (A-Z) for First/Last name initial.
+  - Region input filter.
+  - Church multiselect filter.
+- **TanStack Table:** Columns for Name, Role, Church, Region, Phone. Double-click cell to inline edit.
+- **Export Bar:** Top right segmented control for "Export PDF" | "Export XLS".
+
+**Components:**
+- **Table Row:** 48px height, `#FFFFFF`, hover state changes background to `#F8FAFC` and reveals edit pencil icon.
+
+**Interactions:**
+- **Double Click Cell:** Text swaps to an active input field with a blue focus ring. Enter saves to Neon DB.
+- **Click Export:** Triggers standard browser download flow.
+
+</details>
+
+---
+
+<details>
+<summary>Build Guide</summary>
+
+**Stack:** HTML + Tailwind CSS v3 + TanStack Query + TanStack Table
+
+**Build Order:**
+1. **Design System & Layouts:** Setup Tailwind config with `Cormorant Garamond` and `DM Sans`, exact colors, and base layouts.
+2. **Registration Form:** Build the conditional logic first (Church "Other" swap, Staff role reveal). This is the most complex UI interaction.
+3. **Admin Login:** Simple auth guard.
+4. **Data Dashboard:** Setup layout and static cards.
+5. **Search & Directory:** Implement TanStack table, wire up filtering logic, build inline-edit functionality and export capabilities.
+
+</details>

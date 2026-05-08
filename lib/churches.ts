@@ -1,0 +1,63 @@
+export const INITIAL_CHURCHES: string[] = [
+  "Deliverance Church International",
+  "Christ Is The Answer Ministries (CITAM)",
+  "Nairobi Chapel",
+  "Mavuno Church",
+  "Jesus Is Alive Ministries (JIAM)",
+  "Africa Inland Church (AIC)",
+  "Presbyterian Church of East Africa (PCEA)",
+  "Anglican Church of Kenya (ACK)",
+  "Catholic Church Kenya",
+  "Seventh Day Adventist (SDA)",
+  "Baptist Church of Kenya",
+  "Full Gospel Churches of Kenya",
+  "Assemblies of God Kenya",
+  "Redeemed Gospel Church Kenya",
+  "Jubilee Christian Church",
+  "New Life Prayer Centre",
+  "International Christian Centre (ICC)",
+  "House of Grace",
+  "Parklands Baptist Church",
+  "Lighthouse Baptist Church",
+  "Rhema Church Kenya",
+  "Pentecostal Assemblies of God Kenya (PAG)",
+  "Winners Chapel Kenya",
+  "Living Word Christian Center",
+  "Glad Tidings Church Kenya",
+  "Africa Gospel Church",
+  "Friends Church Kenya",
+  "Salvation Army Kenya",
+  "Methodis Church in Kenya",
+  "Other"
+];
+
+export const SERVING_AREAS: string[] = [
+  "Worship Team",
+  "Media & Sound",
+  "Ushering & Protocol",
+  "Children's Ministry",
+  "Youth Ministry",
+  "Prayer Team",
+  "Security",
+  "Catering & Hospitality",
+  "Counseling",
+  "First Aid & Medical",
+  "Parking & Traffic",
+  "Follow-up Team",
+  "Photography & Videography",
+  "Administration",
+  "Other"
+];
+
+export const EAST_AFRICAN_COUNTRIES: string[] = [
+  "Kenya",
+  "Uganda",
+  "Tanzania",
+  "Rwanda",
+  "Burundi",
+  "Ethiopia",
+  "South Sudan",
+  "Somalia",
+  "Eritrea",
+  "Djibouti"
+];

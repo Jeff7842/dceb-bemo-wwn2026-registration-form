@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Worship &amp; Warfare Night - Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "primary": "#3abff8",
+          "background-light": "#f5f7f8",
+          "background-dark": "#101d23",
+          // Mapped colors from PRD for consistency if needed, but sticking to config primarily
+          "slate-900": "#0F172A",
+          "slate-700": "#334155",
+          "slate-300": "#CBD5E1",
+          "slate-100": "#F1F5F9",
+          "slate-50": "#F8FAFC",
+        },
+        fontFamily: {
+          "display": ["DM Sans", "sans-serif"],
+          "body": ["DM Sans", "sans-serif"],
+        },
+        borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+        boxShadow: {
+          'ethereal': '0 10px 40px -10px rgba(58, 191, 248, 0.1)',
+        }
+      },
+    },
+  }
+</script>
+<style>
+  body {
+    font-family: 'DM Sans', sans-serif;
+  }
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
+</style>
+</head>
+<body class="bg-slate-50 text-slate-700 min-h-screen flex flex-col font-body selection:bg-primary selection:text-white">
+<!-- Shared TopNavBar Component -->
+<div class="relative flex h-auto min-h-screen w-full flex-col bg-slate-50 group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col items-center">
+<div class="w-full max-w-[1200px] flex flex-1 flex-col py-8 px-6 lg:px-12">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-100 pb-6 mb-8">
+<div class="flex items-center gap-4 text-slate-900">
+<div class="size-6 text-primary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z" fill="currentColor"></path>
+</svg>
+</div>
+<h2 class="text-slate-900 text-xl font-bold leading-tight tracking-tight">Worship &amp; Warfare Night</h2>
+</div>
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded h-10 px-6 bg-white border border-slate-100 hover:border-slate-300 hover:bg-slate-50 transition-colors text-slate-700 text-sm font-medium leading-normal shadow-sm">
+<span class="truncate">Logout</span>
+</button>
+</header>
+<div class="flex flex-col gap-8 w-full">
+<div class="flex flex-wrap justify-between items-end gap-4">
+<div>
+<h1 class="text-slate-900 tracking-tight text-3xl font-bold leading-tight mb-2">Dashboard Overview</h1>
+<p class="text-slate-500 text-sm">A high-level view of registration metrics and active personnel.</p>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center gap-2 rounded h-10 px-4 bg-white border border-slate-100 hover:border-slate-300 transition-colors text-slate-700 text-sm font-medium shadow-sm">
+<span class="material-symbols-outlined text-[20px]">download</span>
+        Export Report
+      </button>
+<button class="flex items-center gap-2 rounded h-10 px-4 bg-slate-900 hover:bg-slate-800 transition-colors text-white text-sm font-medium shadow-sm">
+<span class="material-symbols-outlined text-[20px]">search</span>
+        Directory Search
+      </button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Card 1 -->
+<div class="flex flex-col gap-4 rounded-lg p-8 bg-white border border-slate-100 shadow-ethereal relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+<div class="flex justify-between items-start">
+<p class="text-slate-500 text-sm font-medium uppercase tracking-wider">Total Brethren</p>
+<span class="material-symbols-outlined text-primary bg-primary/10 p-2 rounded-full">group</span>
+</div>
+<div class="flex flex-col">
+<p class="text-slate-900 tracking-tight text-5xl font-bold leading-tight mt-2">1,245</p>
+<div class="flex items-center gap-2 mt-3">
+<span class="flex items-center text-emerald-600 text-xs font-medium bg-emerald-50 px-2 py-1 rounded">
+<span class="material-symbols-outlined text-[14px] mr-1">trending_up</span> +12%
+          </span>
+<span class="text-slate-400 text-xs">vs last week</span>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="flex flex-col gap-4 rounded-lg p-8 bg-white border border-slate-100 shadow-ethereal relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+<div class="flex justify-between items-start">
+<p class="text-slate-500 text-sm font-medium uppercase tracking-wider">Churches Represented</p>
+<span class="material-symbols-outlined text-primary bg-primary/10 p-2 rounded-full">church</span>
+</div>
+<div class="flex flex-col">
+<p class="text-slate-900 tracking-tight text-5xl font-bold leading-tight mt-2">42</p>
+<div class="flex items-center gap-2 mt-3">
+<span class="flex items-center text-emerald-600 text-xs font-medium bg-emerald-50 px-2 py-1 rounded">
+<span class="material-symbols-outlined text-[14px] mr-1">trending_up</span> +3
+          </span>
+<span class="text-slate-400 text-xs">new this week</span>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="flex flex-col gap-4 rounded-lg p-8 bg-white border border-slate-100 shadow-ethereal relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+<div class="flex justify-between items-start">
+<p class="text-slate-500 text-sm font-medium uppercase tracking-wider">Active Servants</p>
+<span class="material-symbols-outlined text-primary bg-primary/10 p-2 rounded-full">volunteer_activism</span>
+</div>
+<div class="flex flex-col">
+<p class="text-slate-900 tracking-tight text-5xl font-bold leading-tight mt-2">150</p>
+<div class="flex items-center gap-3 mt-3 overflow-hidden">
+<div class="flex-1 h-1.5 bg-slate-100 rounded-full overflow-hidden flex">
+<div class="h-full bg-slate-900 w-[40%]" title="Ushering"></div>
+<div class="h-full bg-primary w-[30%]" title="Worship"></div>
+<div class="h-full bg-slate-400 w-[20%]" title="Media"></div>
+<div class="h-full bg-slate-200 w-[10%]" title="Security"></div>
+</div>
+</div>
+<div class="flex gap-3 mt-2 text-[10px] text-slate-500 font-medium">
+<span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-slate-900"></span> Ushers</span>
+<span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-primary"></span> Worship</span>
+<span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-slate-400"></span> Media</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Recent Activity Section (to fill space elegantly) -->
+<div class="mt-8">
+<h3 class="text-slate-900 text-lg font-bold mb-4">Recent Registrations</h3>
+<div class="bg-white rounded-lg border border-slate-100 shadow-sm overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-slate-50/50 border-b border-slate-100">
+<th class="py-3 px-6 text-xs font-medium text-slate-500 uppercase tracking-wider">Name</th>
+<th class="py-3 px-6 text-xs font-medium text-slate-500 uppercase tracking-wider">Role</th>
+<th class="py-3 px-6 text-xs font-medium text-slate-500 uppercase tracking-wider">Church</th>
+<th class="py-3 px-6 text-xs font-medium text-slate-500 uppercase tracking-wider">Time</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100">
+<tr class="hover:bg-slate-50 transition-colors">
+<td class="py-4 px-6 text-sm text-slate-900 font-medium">Elias Ochieng</td>
+<td class="py-4 px-6 text-sm"><span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-slate-100 text-slate-800">Pastor</span></td>
+<td class="py-4 px-6 text-sm text-slate-500">Grace Sanctuary</td>
+<td class="py-4 px-6 text-sm text-slate-400">2 mins ago</td>
+</tr>
+<tr class="hover:bg-slate-50 transition-colors">
+<td class="py-4 px-6 text-sm text-slate-900 font-medium">Sarah Mutua</td>
+<td class="py-4 px-6 text-sm"><span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-primary/10 text-primary">Staff - Worship</span></td>
+<td class="py-4 px-6 text-sm text-slate-500">Deliverance Church</td>
+<td class="py-4 px-6 text-sm text-slate-400">15 mins ago</td>
+</tr>
+<tr class="hover:bg-slate-50 transition-colors">
+<td class="py-4 px-6 text-sm text-slate-900 font-medium">David Kamau</td>
+<td class="py-4 px-6 text-sm"><span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-slate-50 text-slate-600 border border-slate-200">Member</span></td>
+<td class="py-4 px-6 text-sm text-slate-500">Nairobi Chapel</td>
+<td class="py-4 px-6 text-sm text-slate-400">1 hour ago</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body></html>

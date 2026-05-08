@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Registration Form - Worship &amp; Warfare Night</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&amp;family=DM+Sans:wght@400;500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0F172A",
+                        "background-light": "#F8FAFC",
+                        "background-dark": "#0F172A",
+                        "surface": "#FFFFFF",
+                        "text-slate": "#334155",
+                        "muted": "#CBD5E1",
+                        "accent": "#38BDF8",
+                        "error": "#EF4444"
+                    },
+                    fontFamily: {
+                        "display": ['Cormorant Garamond', 'serif'],
+                        "body": ['DM Sans', 'sans-serif'],
+                    },
+                    borderRadius: {
+                        "DEFAULT": "4px",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    boxShadow: {
+                        'glow': '0 10px 40px -10px rgba(56, 189, 248, 0.1)',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: linear-gradient(135deg, #E0F2FE 0%, #FFFFFF 100%);
+            min-height: 100vh;
+        }
+        h1, h2, h3, .font-display {
+            font-family: 'Cormorant Garamond', serif;
+        }
+        
+        /* Custom Select Arrow */
+        .custom-select {
+            appearance: none;
+            background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%24%2024%22%20fill%3D%22none%22%20stroke%3D%22%23CBD5E1%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E');
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            background-size: 16px;
+            padding-right: 40px;
+        }
+
+        /* Hide number input spinners */
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        input[type="number"] {
+            -moz-appearance: textfield;
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 text-text-slate">
+<div class="w-full max-w-[560px] bg-surface rounded shadow-glow border border-[#F1F5F9] p-8 md:p-12 relative overflow-hidden">
+<!-- Header -->
+<div class="text-center mb-10">
+<h1 class="font-display text-primary text-4xl md:text-[48px] font-semibold leading-tight tracking-tight mb-2">Join the Gathering</h1>
+<p class="text-text-slate text-sm font-medium opacity-80">Worship &amp; Warfare Night Registration</p>
+</div>
+<form class="space-y-6">
+<!-- Full Name -->
+<div class="space-y-1">
+<label class="block text-[13px] font-medium tracking-wide uppercase text-text-slate opacity-70" for="fullName">Full Name</label>
+<input class="w-full rounded border border-muted bg-surface px-4 py-3 text-base text-text-slate placeholder:text-muted focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-colors" id="fullName" name="fullName" placeholder="Enter your full name" type="text"/>
+</div>
+<!-- Phone Input -->
+<div class="space-y-1">
+<label class="block text-[13px] font-medium tracking-wide uppercase text-text-slate opacity-70">Phone Number</label>
+<div class="flex">
+<select class="custom-select rounded-l border border-r-0 border-muted bg-surface pl-4 py-3 text-base text-text-slate focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-colors w-28">
+<option value="+254">🇰🇪 +254</option>
+<option value="+1">🇺🇸 +1</option>
+<option value="+44">🇬🇧 +44</option>
+<option value="+234">🇳🇬 +234</option>
+</select>
+<input class="w-full rounded-r border border-muted bg-surface px-4 py-3 text-base text-text-slate placeholder:text-muted focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-colors" id="phone" name="phone" placeholder="700 000 000" type="tel"/>
+</div>
+</div>
+<!-- Church Selection (Default State) -->
+<div class="space-y-1" id="church-select-container">
+<label class="block text-[13px] font-medium tracking-wide uppercase text-text-slate opacity-70" for="church">Church</label>
+<select class="custom-select w-full rounded border border-muted bg-surface px-4 py-3 text-base text-text-slate focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-colors" id="church" name="church">
+<option disabled="" selected="" value="">Search for your church</option>
+<option value="Grace Chapel">Grace Chapel</option>
+<option value="House of Light">House of Light</option>
+<option value="Truth Sanctuary">Truth Sanctuary</option>
+<option value="Other">Other (Specify)</option>
+</select>
+</div>
+<!-- Church Input (Other State - Hidden by default) -->
+<div class="space-y-1 hidden" id="church-other-container">
+<label class="block text-[13px] font-medium tracking-wide uppercase text-text-slate opacity-70" for="otherChurch">Other Church</label>
+<div class="relative flex w-full">
+<input class="w-full rounded border border-muted bg-surface px-4 py-3 pr-12 text-base text-text-slate placeholder:text-muted focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-colors" id="otherChurch" name="otherChurch" placeholder="Enter church name" type="text"/>
+<button class="absolute right-0 top-0 bottom-0 px-3 flex items-center justify-center text-muted hover:text-accent transition-colors group" title="Revert to list" type="button">
+<span class="material-symbols-outlined text-xl group-hover:scale-110 transition-transform">u_turn_left</span>
+</button>
+</div>
+</div>
+<!-- Role Selector -->
+<div class="space-y-2 pt-2">
+<label class="block text-[13px] font-medium tracking-wide uppercase text-text-slate opacity-70">Your Role</label>
+<div class="flex h-12 w-full items-center justify-center rounded bg-[#F1F5F9] p-1">
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded px-2 has-[:checked]:bg-surface has-[:checked]:shadow-sm has-[:checked]:text-primary text-text-slate text-sm font-medium transition-all">
+<span class="truncate">Member</span>
+<input checked="" class="invisible w-0" name="role" type="radio" value="Member"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded px-2 has-[:checked]:bg-surface has-[:checked]:shadow-sm has-[:checked]:text-primary text-text-slate text-sm font-medium transition-all">
+<span class="truncate">Pastor</span>
+<input class="invisible w-0" name="role" type="radio" value="Pastor"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded px-2 has-[:checked]:bg-surface has-[:checked]:shadow-sm has-[:checked]:text-primary text-text-slate text-sm font-medium transition-all">
+<span class="truncate">Staff</span>
+<input class="invisible w-0" name="role" type="radio" value="Staff"/>
+</label>
+</div>
+</div>
+<!-- Service Area (Hidden by default, shown when Staff is selected) -->
+<div class="space-y-1 hidden pt-2 transition-all duration-300 ease-in-out" id="service-area-container">
+<label class="block text-[13px] font-medium tracking-wide uppercase text-text-slate opacity-70" for="serviceArea">Service Area</label>
+<select class="w-full rounded border border-muted bg-surface px-4 py-3 text-base text-text-slate focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-colors min-h-[100px]" id="serviceArea" multiple="" name="serviceArea">
+<option class="p-2 hover:bg-background-light" value="Ushering">Ushering</option>
+<option class="p-2 hover:bg-background-light" value="Media">Media &amp; Tech</option>
+<option class="p-2 hover:bg-background-light" value="Worship">Worship Team</option>
+<option class="p-2 hover:bg-background-light" value="Security">Security</option>
+</select>
+<p class="text-xs text-muted mt-1">Hold Ctrl/Cmd to select multiple areas.</p>
+</div>
+<!-- Example Error State (Hidden by default) -->
+<div class="space-y-1 hidden" id="error-example">
+<label class="block text-[13px] font-medium tracking-wide uppercase text-text-slate opacity-70">Email Address</label>
+<input class="w-full rounded border border-error bg-surface px-4 py-3 text-base text-text-slate focus:outline-none" type="email" value="invalid-email"/>
+<p class="text-[12px] text-error mt-1">Please enter a valid email address.</p>
+</div>
+<!-- Submit Button -->
+<div class="pt-6">
+<button class="w-full bg-primary hover:bg-[#1E293B] text-surface font-medium text-sm py-4 px-6 rounded transition-colors flex items-center justify-center group relative overflow-hidden" type="button">
+<span class="relative z-10">Register for Gathering</span>
+<!-- Example Loading State (Hidden by default) -->
+<!-- <span class="relative z-10 flex items-center gap-1">Ascending<span class="animate-pulse">...</span></span> -->
+</button>
+</div>
+</form>
+</div>
+</body></html>

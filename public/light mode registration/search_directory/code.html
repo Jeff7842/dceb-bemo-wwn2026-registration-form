@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Celestial Minimalist - Search &amp; Directory</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&amp;family=DM+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "primary": "#3abff8",
+          "background-light": "#f5f7f8",
+          "background-dark": "#101d23",
+          // Mapping custom tokens to tailwind palette for this specific design
+          "brand-deep": "#0F172A",
+          "brand-bg": "#F8FAFC",
+          "brand-surface": "#FFFFFF",
+          "brand-text": "#334155",
+          "brand-muted": "#CBD5E1",
+        },
+        fontFamily: {
+          "display": ["DM Sans", "sans-serif"], // Fallback if config is strictly adhered to, but using custom below for specifics
+          "serif-head": ["Cormorant Garamond", "serif"],
+          "sans-body": ["DM Sans", "sans-serif"]
+        },
+        borderRadius: {
+          "DEFAULT": "0.25rem",
+          "md": "4px", // Custom strict 4px requirement
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+      },
+    },
+  }
+</script>
+<style>
+  /* Custom overrides ensuring strict 4px radius and font application where Tailwind config might be restrictive */
+  .font-serif-head { font-family: 'Cormorant Garamond', serif; }
+  .font-sans-body { font-family: 'DM Sans', sans-serif; }
+  .rounded-custom { border-radius: 4px; }
+  
+  /* Hide scrollbar for cleaner look in the sidebar */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+</style>
+</head>
+<body class="bg-brand-bg text-brand-text font-sans-body min-h-screen flex flex-col antialiased">
+<!-- Shared TopNavBar (Included based on logic: Destination screen) -->
+<div class="relative flex h-auto min-h-screen w-full flex-col bg-brand-bg group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<div class="px-8 flex flex-1 justify-center py-5">
+<div class="layout-content-container flex flex-col w-full max-w-[1440px] flex-1">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-brand-muted/40 px-10 py-3 bg-brand-surface rounded-t-custom shadow-sm">
+<div class="flex items-center gap-4 text-brand-deep">
+<div class="size-6 text-primary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M39.5563 34.1455V13.8546C39.5563 15.708 36.8773 17.3437 32.7927 18.3189C30.2914 18.916 27.263 19.2655 24 19.2655C20.737 19.2655 17.7086 18.916 15.2073 18.3189C11.1227 17.3437 8.44365 15.708 8.44365 13.8546V34.1455C8.44365 35.9988 11.1227 37.6346 15.2073 38.6098C17.7086 39.2069 20.737 39.5564 24 39.5564C27.263 39.5564 30.2914 39.2069 32.7927 38.6098C36.8773 37.6346 39.5563 35.9988 39.5563 34.1455Z" fill="currentColor"></path>
+<path clip-rule="evenodd" d="M10.4485 13.8519C10.4749 13.9271 10.6203 14.246 11.379 14.7361C12.298 15.3298 13.7492 15.9145 15.6717 16.3735C18.0007 16.9296 20.8712 17.2655 24 17.2655C27.1288 17.2655 29.9993 16.9296 32.3283 16.3735C34.2508 15.9145 35.702 15.3298 36.621 14.7361C37.3796 14.246 37.5251 13.9271 37.5515 13.8519C37.5287 13.7876 37.4333 13.5973 37.0635 13.2931C36.5266 12.8516 35.6288 12.3647 34.343 11.9175C31.79 11.0295 28.1333 10.4437 24 10.4437C19.8667 10.4437 16.2099 11.0295 13.657 11.9175C12.3712 12.3647 11.4734 12.8516 10.9365 13.2931C10.5667 13.5973 10.4713 13.7876 10.4485 13.8519ZM37.5563 18.7877C36.3176 19.3925 34.8502 19.8839 33.2571 20.2642C30.5836 20.9025 27.3973 21.2655 24 21.2655C20.6027 21.2655 17.4164 20.9025 14.7429 20.2642C13.1498 19.8839 11.6824 19.3925 10.4436 18.7877V34.1275C10.4515 34.1545 10.5427 34.4867 11.379 35.027C12.298 35.6207 13.7492 36.2054 15.6717 36.6644C18.0007 37.2205 20.8712 37.5564 24 37.5564C27.1288 37.5564 29.9993 37.2205 32.3283 36.6644C34.2508 36.2054 35.702 35.6207 36.621 35.027C37.4573 34.4867 37.5485 34.1546 37.5563 34.1275V18.7877ZM41.5563 13.8546V34.1455C41.5563 36.1078 40.158 37.5042 38.7915 38.3869C37.3498 39.3182 35.4192 40.0389 33.2571 40.5551C30.5836 41.1934 27.3973 41.5564 24 41.5564C20.6027 41.5564 17.4164 41.1934 14.7429 40.5551C12.5808 40.0389 10.6502 39.3182 9.20848 38.3869C7.84205 37.5042 6.44365 36.1078 6.44365 34.1455L6.44365 13.8546C6.44365 12.2684 7.37223 11.0454 8.39581 10.2036C9.43325 9.3505 10.8137 8.67141 12.343 8.13948C15.4203 7.06909 19.5418 6.44366 24 6.44366C28.4582 6.44366 32.5797 7.06909 35.657 8.13948C37.1863 8.67141 38.5667 9.3505 39.6042 10.2036C40.6278 11.0454 41.5563 12.2684 41.5563 13.8546Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-brand-deep text-xl font-serif-head font-bold leading-tight tracking-[-0.015em]">Celestial</h2>
+</div>
+<div class="flex flex-1 justify-end gap-8">
+<div class="flex items-center gap-9">
+<a class="text-brand-text hover:text-brand-deep transition-colors text-sm font-medium leading-normal" href="#">Dashboard</a>
+<a class="text-brand-deep text-sm font-medium leading-normal border-b-2 border-primary pb-1" href="#">Search &amp; Directory</a>
+</div>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-custom h-10 px-6 bg-brand-deep text-brand-surface text-sm font-medium leading-normal transition-opacity hover:opacity-90">
+<span class="truncate">Logout</span>
+</button>
+</div>
+</header>
+<!-- Main Interface -->
+<div class="flex flex-1 overflow-hidden bg-brand-surface rounded-b-custom shadow-sm border-x border-b border-brand-muted/40 relative z-10">
+<!-- Sidebar Filters -->
+<aside class="w-72 border-r border-brand-muted/40 flex flex-col bg-brand-surface overflow-y-auto no-scrollbar">
+<div class="p-6 space-y-8">
+<!-- Filter Section: Initial -->
+<div>
+<h3 class="text-[13px] font-bold text-brand-text uppercase tracking-wider mb-4 flex items-center justify-between">
+                    Last Name Initial
+                    <button class="text-[11px] text-primary hover:underline lowercase font-normal tracking-normal cursor-pointer">clear</button>
+</h3>
+<div class="grid grid-cols-6 gap-2">
+<button class="h-8 rounded-custom border border-brand-muted/60 text-xs font-medium text-brand-text hover:border-primary hover:text-primary transition-colors flex items-center justify-center">A</button>
+<button class="h-8 rounded-custom border border-brand-muted/60 text-xs font-medium text-brand-text hover:border-primary hover:text-primary transition-colors flex items-center justify-center">B</button>
+<button class="h-8 rounded-custom bg-primary/10 border border-primary text-xs font-medium text-primary transition-colors flex items-center justify-center">C</button>
+<button class="h-8 rounded-custom border border-brand-muted/60 text-xs font-medium text-brand-text hover:border-primary hover:text-primary transition-colors flex items-center justify-center">D</button>
+<button class="h-8 rounded-custom border border-brand-muted/60 text-xs font-medium text-brand-text hover:border-primary hover:text-primary transition-colors flex items-center justify-center">E</button>
+<button class="h-8 rounded-custom border border-brand-muted/60 text-xs font-medium text-brand-text hover:border-primary hover:text-primary transition-colors flex items-center justify-center">F</button>
+<button class="h-8 rounded-custom border border-brand-muted/60 text-xs font-medium text-brand-text hover:border-primary hover:text-primary transition-colors flex items-center justify-center">G</button>
+<button class="h-8 rounded-custom border border-brand-muted/60 text-xs font-medium text-brand-text hover:border-primary hover:text-primary transition-colors flex items-center justify-center">H</button>
+<button class="h-8 rounded-custom border border-brand-muted/60 text-xs font-medium text-brand-text hover:border-primary hover:text-primary transition-colors flex items-center justify-center">I</button>
+<button class="h-8 rounded-custom border border-brand-muted/60 text-xs font-medium text-brand-text hover:border-primary hover:text-primary transition-colors flex items-center justify-center">J</button>
+<button class="h-8 rounded-custom border border-brand-muted/60 text-xs font-medium text-brand-text hover:border-primary hover:text-primary transition-colors flex items-center justify-center">K</button>
+<button class="h-8 rounded-custom border border-brand-muted/60 text-xs font-medium text-brand-text hover:border-primary hover:text-primary transition-colors flex items-center justify-center">L</button>
+</div>
+<div class="mt-2 text-center text-[11px] text-brand-muted cursor-pointer hover:text-brand-text">Show all</div>
+</div>
+<!-- Filter Section: Region -->
+<div>
+<h3 class="text-[13px] font-bold text-brand-text uppercase tracking-wider mb-4">Region</h3>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[18px] text-brand-muted">search</span>
+<input class="w-full h-10 pl-9 pr-3 rounded-custom border border-brand-muted/60 bg-transparent text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition-shadow text-brand-text placeholder:text-brand-muted" placeholder="Search region..." type="text"/>
+</div>
+<div class="mt-3 space-y-2">
+<label class="flex items-center gap-2 cursor-pointer group">
+<input class="rounded-[2px] border-brand-muted/60 text-primary focus:ring-primary/20 w-4 h-4 cursor-pointer" type="checkbox"/>
+<span class="text-sm text-brand-text group-hover:text-brand-deep">Nairobi (Central)</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer group">
+<input checked="" class="rounded-[2px] border-brand-muted/60 text-primary focus:ring-primary/20 w-4 h-4 cursor-pointer" type="checkbox"/>
+<span class="text-sm text-brand-text group-hover:text-brand-deep">Rift Valley</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer group">
+<input class="rounded-[2px] border-brand-muted/60 text-primary focus:ring-primary/20 w-4 h-4 cursor-pointer" type="checkbox"/>
+<span class="text-sm text-brand-text group-hover:text-brand-deep">Coast</span>
+</label>
+</div>
+</div>
+<!-- Filter Section: Church -->
+<div>
+<h3 class="text-[13px] font-bold text-brand-text uppercase tracking-wider mb-4">Church</h3>
+<div class="relative mb-3">
+<select class="w-full h-10 px-3 appearance-none rounded-custom border border-brand-muted/60 bg-transparent text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition-shadow text-brand-text">
+<option value="">Select church...</option>
+<option value="1">Grace Sanctuary</option>
+<option value="2">Bethel City</option>
+<option value="3">New Life Tabernacle</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-[18px] text-brand-muted pointer-events-none">expand_more</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content: Data Table -->
+<main class="flex-1 flex flex-col min-w-0 bg-brand-surface relative">
+<!-- Toolbar -->
+<div class="flex items-center justify-between px-8 py-6 border-b border-brand-muted/20">
+<div>
+<h1 class="text-brand-deep font-serif-head text-3xl font-bold tracking-tight">Attendee Directory</h1>
+<p class="text-sm text-brand-text mt-1">Viewing 240 filtered records from 1,024 total brethren.</p>
+</div>
+<!-- Export Controls (from shared components logic) -->
+<div class="flex h-10 w-[240px] items-center justify-center rounded-custom bg-brand-bg p-1 border border-brand-muted/30">
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-[3px] px-2 has-[:checked]:bg-brand-surface has-[:checked]:shadow-[0_1px_3px_rgba(0,0,0,0.05)] has-[:checked]:text-brand-deep text-brand-text text-sm font-medium leading-normal transition-all">
+<span class="truncate">Export PDF</span>
+<input checked="" class="invisible w-0" name="export-type" type="radio" value="pdf"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-[3px] px-2 has-[:checked]:bg-brand-surface has-[:checked]:shadow-[0_1px_3px_rgba(0,0,0,0.05)] has-[:checked]:text-brand-deep text-brand-text text-sm font-medium leading-normal transition-all">
+<span class="truncate">Export XLS</span>
+<input class="invisible w-0" name="export-type" type="radio" value="xls"/>
+</label>
+</div>
+</div>
+<!-- Table Container -->
+<div class="flex-1 overflow-auto p-8 relative">
+<div class="min-w-[800px] border border-brand-muted/30 rounded-custom shadow-sm bg-brand-surface overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead class="bg-brand-bg/50 border-b border-brand-muted/40">
+<tr>
+<th class="px-4 py-3 text-[12px] font-bold text-brand-text uppercase tracking-wider w-[25%] group cursor-pointer hover:bg-brand-muted/10 transition-colors">
+<div class="flex items-center gap-1">Name <span class="material-symbols-outlined text-[14px] text-brand-muted group-hover:text-brand-deep">arrow_drop_down</span></div>
+</th>
+<th class="px-4 py-3 text-[12px] font-bold text-brand-text uppercase tracking-wider w-[15%]">Role</th>
+<th class="px-4 py-3 text-[12px] font-bold text-brand-text uppercase tracking-wider w-[25%]">Church</th>
+<th class="px-4 py-3 text-[12px] font-bold text-brand-text uppercase tracking-wider w-[15%]">Region</th>
+<th class="px-4 py-3 text-[12px] font-bold text-brand-text uppercase tracking-wider w-[20%]">Phone</th>
+</tr>
+</thead>
+<tbody class="text-sm">
+<!-- Row 1: Standard Static -->
+<tr class="h-12 border-b border-brand-muted/20 hover:bg-brand-bg transition-colors group/row">
+<td class="px-4 py-2 font-medium text-brand-deep relative">
+                                Caleb Omondi
+                                <span class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 text-[16px] text-brand-muted opacity-0 group-hover/row:opacity-100 cursor-pointer hover:text-primary transition-all">edit</span>
+</td>
+<td class="px-4 py-2 text-brand-text">Member</td>
+<td class="px-4 py-2 text-brand-text truncate">Grace Sanctuary</td>
+<td class="px-4 py-2 text-brand-text">Rift Valley</td>
+<td class="px-4 py-2 text-brand-text">+254 712 345 678</td>
+</tr>
+<!-- Row 2: Inline Edit State (Double-clicked) -->
+<tr class="h-12 border-b border-brand-muted/20 hover:bg-brand-bg transition-colors group/row bg-primary/5">
+<td class="px-4 py-2 font-medium text-brand-deep relative">
+<div class="relative w-full">
+<input class="w-full h-8 px-2 -ml-2 rounded-[3px] border border-primary bg-brand-surface text-brand-deep text-sm font-medium focus:outline-none focus:ring-2 focus:ring-primary/30 shadow-[0_0_10px_-2px_rgba(56,189,248,0.3)]" type="text" value="Chloe Njoroge"/>
+</div>
+</td>
+<td class="px-4 py-2 text-brand-text">
+<span class="inline-flex items-center px-2 py-0.5 rounded-custom text-xs font-medium bg-brand-deep/5 text-brand-deep">Staff (Usher)</span>
+</td>
+<td class="px-4 py-2 text-brand-text truncate">Bethel City</td>
+<td class="px-4 py-2 text-brand-text">Rift Valley</td>
+<td class="px-4 py-2 text-brand-text">+254 722 987 654</td>
+</tr>
+<!-- Row 3: Standard Static -->
+<tr class="h-12 border-b border-brand-muted/20 hover:bg-brand-bg transition-colors group/row">
+<td class="px-4 py-2 font-medium text-brand-deep relative">
+<div class="flex items-center gap-2">
+                                    David Kamau
+                                    <span class="material-symbols-outlined text-[14px] text-primary" title="Verified">verified</span>
+</div>
+<span class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 text-[16px] text-brand-muted opacity-0 group-hover/row:opacity-100 cursor-pointer hover:text-primary transition-all">edit</span>
+</td>
+<td class="px-4 py-2 text-brand-text">Pastor</td>
+<td class="px-4 py-2 text-brand-text truncate">New Life Tabernacle</td>
+<td class="px-4 py-2 text-brand-text">Rift Valley</td>
+<td class="px-4 py-2 text-brand-text">+254 733 112 233</td>
+</tr>
+<!-- Row 4: Standard Static -->
+<tr class="h-12 border-b border-brand-muted/20 hover:bg-brand-bg transition-colors group/row">
+<td class="px-4 py-2 font-medium text-brand-deep relative">
+                                Elizabeth Wanjiku
+                                <span class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 text-[16px] text-brand-muted opacity-0 group-hover/row:opacity-100 cursor-pointer hover:text-primary transition-all">edit</span>
+</td>
+<td class="px-4 py-2 text-brand-text">Member</td>
+<td class="px-4 py-2 text-brand-text truncate">Grace Sanctuary</td>
+<td class="px-4 py-2 text-brand-text">Rift Valley</td>
+<td class="px-4 py-2 text-brand-text">+254 799 445 566</td>
+</tr>
+<!-- Row 5: Standard Static -->
+<tr class="h-12 border-b border-transparent hover:bg-brand-bg transition-colors group/row">
+<td class="px-4 py-2 font-medium text-brand-deep relative">
+                                Faith Mutua
+                                <span class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 text-[16px] text-brand-muted opacity-0 group-hover/row:opacity-100 cursor-pointer hover:text-primary transition-all">edit</span>
+</td>
+<td class="px-4 py-2 text-brand-text">
+<span class="inline-flex items-center px-2 py-0.5 rounded-custom text-xs font-medium bg-brand-deep/5 text-brand-deep">Staff (Media)</span>
+</td>
+<td class="px-4 py-2 text-brand-text truncate">Bethel City</td>
+<td class="px-4 py-2 text-brand-text">Rift Valley</td>
+<td class="px-4 py-2 text-brand-text">+254 700 889 900</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination Indicator -->
+<div class="flex items-center justify-between mt-4 px-1 text-sm text-brand-muted">
+<div>Showing 1 to 5 of 240 entries</div>
+<div class="flex gap-1">
+<button class="w-8 h-8 flex items-center justify-center rounded-custom border border-brand-muted/40 hover:bg-brand-bg text-brand-text disabled:opacity-50"><span class="material-symbols-outlined text-[18px]">chevron_left</span></button>
+<button class="w-8 h-8 flex items-center justify-center rounded-custom bg-brand-deep text-brand-surface">1</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-custom border border-brand-muted/40 hover:bg-brand-bg text-brand-text">2</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-custom border border-brand-muted/40 hover:bg-brand-bg text-brand-text">3</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-custom border border-brand-muted/40 hover:bg-brand-bg text-brand-text"><span class="material-symbols-outlined text-[18px]">chevron_right</span></button>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body></html>
